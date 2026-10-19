@@ -1,0 +1,333 @@
+table ecommerce_sales_customer_analytics_150k
+	lineageTag: faeb06af-e0f9-404b-9359-5d856f711926
+
+	measure 'Total Clientes' = DISTINCTCOUNT(ecommerce_sales_customer_analytics_150k[customer_id])
+		formatString: 0
+		lineageTag: b8b99a9f-0578-47ea-a7f1-88bc935bacc3
+
+	measure 'Faturamento Total' =
+			
+			SUM('ecommerce_sales_customer_analytics_150k'[net_sales])
+		formatString: 0
+		lineageTag: 03b803eb-c1d7-4a63-b210-3d85415f9285
+
+	measure Medida_net = SUM(ecommerce_sales_customer_analytics_150k[net_sales])
+		formatString: 0
+		lineageTag: d42f255b-5015-4cef-8047-94fc5962820f
+
+	column order_date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: b398b42b-878a-4fdf-ba77-ed09e849c602
+		summarizeBy: none
+		sourceColumn: order_date
+
+		variation Variation
+			isDefault
+			relationship: 422df54a-5b72-428f-888f-a3b3c4c8fbf6
+			defaultHierarchy: LocalDateTable_d1f82a28-fa39-4faf-8566-37774d3849e9.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column order_time
+		dataType: dateTime
+		formatString: Long Time
+		lineageTag: 99c13e08-e08e-4234-9f7b-524ca119368d
+		summarizeBy: none
+		sourceColumn: order_time
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Time
+
+	column order_status
+		dataType: string
+		lineageTag: db12aa84-fdc7-4618-bc84-c91b35fc1a80
+		summarizeBy: none
+		sourceColumn: order_status
+
+		annotation SummarizationSetBy = Automatic
+
+	column sales_channel
+		dataType: string
+		lineageTag: ce2c48cc-229d-46d9-9efc-fbf89635d253
+		summarizeBy: none
+		sourceColumn: sales_channel
+
+		annotation SummarizationSetBy = Automatic
+
+	column customer_age
+		dataType: int64
+		formatString: 0
+		lineageTag: c37d62a0-3aea-4d9e-b1be-7bcc3e404bc6
+		summarizeBy: sum
+		sourceColumn: customer_age
+
+		annotation SummarizationSetBy = Automatic
+
+	column gender
+		dataType: string
+		lineageTag: fd62f8a2-135a-463d-a276-aed3fdd004fd
+		summarizeBy: none
+		sourceColumn: gender
+
+		annotation SummarizationSetBy = Automatic
+
+	column customer_segment
+		dataType: string
+		lineageTag: 8402d79e-58af-48d7-8cd4-a4c5aa4d9f35
+		summarizeBy: none
+		sourceColumn: customer_segment
+
+		annotation SummarizationSetBy = Automatic
+
+	column customer_type
+		dataType: string
+		lineageTag: 6eaf225e-503a-47e4-acc5-e4d32c0d999a
+		summarizeBy: none
+		sourceColumn: customer_type
+
+		annotation SummarizationSetBy = Automatic
+
+	column customer_city
+		dataType: string
+		lineageTag: 016318d7-9962-4a20-a74c-ae70c7f67709
+		summarizeBy: none
+		sourceColumn: customer_city
+
+		annotation SummarizationSetBy = Automatic
+
+	column customer_state
+		dataType: string
+		lineageTag: cc63d7ed-5476-4bda-a829-5193c2f3fdb8
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: customer_state
+
+		annotation SummarizationSetBy = Automatic
+
+	column customer_country
+		dataType: string
+		lineageTag: 94c9863d-a551-457f-a309-3e8be099af60
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: customer_country
+
+		annotation SummarizationSetBy = Automatic
+
+	column region
+		dataType: string
+		lineageTag: 326e7325-41f5-43fb-867f-8e00f85e5dcd
+		summarizeBy: none
+		sourceColumn: region
+
+		annotation SummarizationSetBy = Automatic
+
+	column payment_method
+		dataType: string
+		lineageTag: b0ff388f-1197-4ec2-aeb3-e713d32341f4
+		summarizeBy: none
+		sourceColumn: payment_method
+
+		annotation SummarizationSetBy = Automatic
+
+	column delivery_days
+		dataType: int64
+		formatString: 0
+		lineageTag: 0808a9dc-ce4e-4fe2-8e00-58d113dff2ca
+		summarizeBy: sum
+		sourceColumn: delivery_days
+
+		annotation SummarizationSetBy = Automatic
+
+	column estimated_delivery_days
+		dataType: int64
+		formatString: 0
+		lineageTag: fccb3fd0-9877-4ca7-95da-d66c3e9834e8
+		summarizeBy: sum
+		sourceColumn: estimated_delivery_days
+
+		annotation SummarizationSetBy = Automatic
+
+	column delivery_status
+		dataType: string
+		lineageTag: 4ac3b6bb-e0e7-4bb9-81b0-bee98b7086c6
+		summarizeBy: none
+		sourceColumn: delivery_status
+
+		annotation SummarizationSetBy = Automatic
+
+	column customer_rating
+		dataType: int64
+		formatString: 0
+		lineageTag: c13e43e8-e433-4240-8af7-91a8a81963f9
+		summarizeBy: sum
+		sourceColumn: customer_rating
+
+		annotation SummarizationSetBy = Automatic
+
+	column marketing_channel
+		dataType: string
+		lineageTag: d92e8a61-e720-444a-8078-e9ab2f411bd8
+		summarizeBy: none
+		sourceColumn: marketing_channel
+
+		annotation SummarizationSetBy = Automatic
+
+	column loyalty_points_earned
+		dataType: int64
+		formatString: 0
+		lineageTag: 85ced3f1-d3a9-405c-a78d-9b815f8b37eb
+		summarizeBy: sum
+		sourceColumn: loyalty_points_earned
+
+		annotation SummarizationSetBy = Automatic
+
+	column loyalty_points_redeemed
+		dataType: int64
+		formatString: 0
+		lineageTag: 1492d317-a562-42f2-afba-c09b6fc4f7b1
+		summarizeBy: sum
+		sourceColumn: loyalty_points_redeemed
+
+		annotation SummarizationSetBy = Automatic
+
+	column quantity
+		dataType: int64
+		formatString: 0
+		lineageTag: 722cf1e9-bf79-4383-92b7-885277da6b66
+		summarizeBy: sum
+		sourceColumn: quantity
+
+		annotation SummarizationSetBy = Automatic
+
+	column gross_sales
+		dataType: int64
+		formatString: 0
+		lineageTag: 29c16e00-1526-4c87-a44e-6a2302d02dfb
+		summarizeBy: sum
+		sourceColumn: gross_sales
+
+		annotation SummarizationSetBy = Automatic
+
+	column discount_amount
+		dataType: int64
+		formatString: 0
+		lineageTag: f1092e87-7155-43f5-8513-064cc09910a6
+		summarizeBy: sum
+		sourceColumn: discount_amount
+
+		annotation SummarizationSetBy = Automatic
+
+	column tax_amount
+		dataType: int64
+		formatString: 0
+		lineageTag: 16d5eefd-8122-4a30-9858-4bc7191d7cf3
+		summarizeBy: sum
+		sourceColumn: tax_amount
+
+		annotation SummarizationSetBy = Automatic
+
+	column shipping_cost
+		dataType: int64
+		formatString: 0
+		lineageTag: c2033b38-2674-4697-acfe-29d498b777a3
+		summarizeBy: sum
+		sourceColumn: shipping_cost
+
+		annotation SummarizationSetBy = Automatic
+
+	column net_sales
+		dataType: int64
+		formatString: 0
+		lineageTag: de747ef1-5e6c-4034-89e5-e135b83ab718
+		summarizeBy: sum
+		sourceColumn: net_sales
+
+		annotation SummarizationSetBy = Automatic
+
+	column product_cost
+		dataType: int64
+		formatString: 0
+		lineageTag: d902e6f7-3ec7-4e59-83bb-730f38dae826
+		summarizeBy: sum
+		sourceColumn: product_cost
+
+		annotation SummarizationSetBy = Automatic
+
+	column profit
+		dataType: int64
+		formatString: 0
+		lineageTag: e320a1bf-1a65-4670-a093-076d3d480185
+		summarizeBy: sum
+		sourceColumn: profit
+
+		annotation SummarizationSetBy = Automatic
+
+	column profit_margin_percentage
+		dataType: int64
+		formatString: 0
+		lineageTag: aa399bc8-21e9-458f-8958-bcae30cd6676
+		summarizeBy: sum
+		sourceColumn: profit_margin_percentage
+
+		annotation SummarizationSetBy = Automatic
+
+	column customer_lifetime_value
+		dataType: int64
+		formatString: 0
+		lineageTag: dec90098-4d4f-498c-9c6a-b50776ef1792
+		summarizeBy: sum
+		sourceColumn: customer_lifetime_value
+
+		annotation SummarizationSetBy = Automatic
+
+	column customer_id
+		dataType: string
+		lineageTag: 8b4b90db-b4ac-432c-b3e8-a56c6c9d77a9
+		summarizeBy: none
+		sourceColumn: customer_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column customer_name
+		dataType: string
+		lineageTag: 5617f2e6-1e93-40c2-b8e1-f1e43def43d2
+		summarizeBy: none
+		sourceColumn: customer_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column Column1
+		dataType: string
+		lineageTag: af7154ee-ac12-4c8d-991c-d1cede975932
+		summarizeBy: none
+		sourceColumn: Column1
+
+		annotation SummarizationSetBy = Automatic
+
+	column order_id
+		dataType: string
+		lineageTag: 7b30e578-3e3a-44b0-b503-7aed05b1bc6e
+		summarizeBy: none
+		sourceColumn: order_id
+
+		annotation SummarizationSetBy = Automatic
+
+	partition ecommerce_sales_customer_analytics_150k = m
+		mode: import
+		source =
+				let
+				    Fonte = Csv.Document(File.Contents("D:\Projetos\sales_analytics\dataset\ecommerce_sales_customer_analytics_150k.csv"),[Delimiter=",", Columns=46, Encoding=65001, QuoteStyle=QuoteStyle.None]),
+				    #"Cabeçalhos Promovidos" = Table.PromoteHeaders(Fonte, [PromoteAllScalars=true]),
+				    #"Tipo Alterado" = Table.TransformColumnTypes(#"Cabeçalhos Promovidos",{{"order_id", type text}, {"order_date", type date}, {"order_time", type time}, {"order_status", type text}, {"sales_channel", type text}, {"customer_id", type text}, {"customer_name", type text}, {"customer_age", Int64.Type}, {"gender", type text}, {"customer_segment", type text}, {"customer_type", type text}, {"customer_city", type text}, {"customer_state", type text}, {"customer_country", type text}, {"region", type text}, {"customer_postal_code", Int64.Type}, {"payment_method", type text}, {"payment_status", type text}, {"currency", type text}, {"shipping_method", type text}, {"warehouse", type text}, {"delivery_days", Int64.Type}, {"estimated_delivery_days", Int64.Type}, {"delivery_status", type text}, {"return_status", type text}, {"return_reason", type text}, {"customer_rating", Int64.Type}, {"review_sentiment", type text}, {"customer_review", type text}, {"marketing_channel", type text}, {"campaign_name", type text}, {"coupon_code", type text}, {"loyalty_points_earned", Int64.Type}, {"loyalty_points_redeemed", Int64.Type}, {"quantity", Int64.Type}, {"gross_sales", Int64.Type}, {"discount_amount", Int64.Type}, {"tax_amount", Int64.Type}, {"shipping_cost", Int64.Type}, {"net_sales", Int64.Type}, {"product_cost", Int64.Type}, {"profit", Int64.Type}, {"profit_margin_percentage", Int64.Type}, {"customer_lifetime_value", Int64.Type}, {"is_repeat_customer", type logical}}),
+				    #"Colunas Removidas" = Table.RemoveColumns(#"Tipo Alterado",{"customer_postal_code", "payment_status", "currency", "shipping_method", "warehouse", "return_status", "return_reason", "review_sentiment", "customer_review", "campaign_name", "coupon_code", "is_repeat_customer"})
+				in
+				    #"Colunas Removidas"
+
+	annotation PBI_NavigationStepName = Navegação
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,61 @@
+{
+  "version": "1.1.0",
+  "diagrams": [
+    {
+      "ordinal": 0,
+      "scrollPosition": {
+        "x": 0,
+        "y": 0
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 0,
+            "y": 0
+          },
+          "nodeIndex": "ecommerce_sales_customer_analytics_150k",
+          "nodeLineageTag": "faeb06af-e0f9-404b-9359-5d856f711926",
+          "size": {
+            "height": 415,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 302,
+            "y": 2
+          },
+          "nodeIndex": "order_items",
+          "nodeLineageTag": "8615f3ad-c693-48d9-8458-46afe4ab47f8",
+          "size": {
+            "height": 411,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 624,
+            "y": 0
+          },
+          "nodeIndex": "product_catalog",
+          "nodeLineageTag": "85e15c97-2f39-4340-a798-b91ca224d721",
+          "size": {
+            "height": 416,
+            "width": 234
+          },
+          "zIndex": 0
+        }
+      ],
+      "name": "Todas as tabelas",
+      "zoomValue": 100,
+      "pinKeyFieldsToTop": false,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    }
+  ],
+  "selectedDiagram": "Todas as tabelas",
+  "defaultDiagram": "Todas as tabelas"
+}

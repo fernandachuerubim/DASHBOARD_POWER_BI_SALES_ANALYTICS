@@ -1,0 +1,121 @@
+table order_items
+	lineageTag: 8615f3ad-c693-48d9-8458-46afe4ab47f8
+
+	column order_id
+		dataType: string
+		lineageTag: e20d5adc-e07b-4f8d-94fc-fe839502aae8
+		summarizeBy: none
+		sourceColumn: order_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column product_id
+		dataType: string
+		lineageTag: 3b9a73ae-6580-4a7a-99f2-605d8b7f228d
+		summarizeBy: none
+		sourceColumn: product_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column quantity
+		dataType: int64
+		formatString: 0
+		lineageTag: bffee1e5-b8b5-429c-a8db-9313668c43ee
+		summarizeBy: sum
+		sourceColumn: quantity
+
+		annotation SummarizationSetBy = Automatic
+
+	column unit_price
+		dataType: int64
+		formatString: 0
+		lineageTag: bb3cf3eb-92da-47ef-93b2-d0ffea39c6ca
+		summarizeBy: sum
+		sourceColumn: unit_price
+
+		annotation SummarizationSetBy = Automatic
+
+	column discount_percentage
+		dataType: int64
+		formatString: 0
+		lineageTag: b648a21e-ebe4-455a-8960-aad919281379
+		summarizeBy: sum
+		sourceColumn: discount_percentage
+
+		annotation SummarizationSetBy = Automatic
+
+	column discount_amount
+		dataType: int64
+		formatString: 0
+		lineageTag: 6f0eca35-b3e6-445c-a24c-ed80048aab23
+		summarizeBy: sum
+		sourceColumn: discount_amount
+
+		annotation SummarizationSetBy = Automatic
+
+	column gross_sales
+		dataType: int64
+		formatString: 0
+		lineageTag: e35ea5ac-3332-47a6-a005-3b87b3a15871
+		summarizeBy: sum
+		sourceColumn: gross_sales
+
+		annotation SummarizationSetBy = Automatic
+
+	column tax_amount
+		dataType: int64
+		formatString: 0
+		lineageTag: c21b542b-66d2-49ed-9873-5b01e6b49a03
+		summarizeBy: sum
+		sourceColumn: tax_amount
+
+		annotation SummarizationSetBy = Automatic
+
+	column shipping_cost
+		dataType: int64
+		formatString: 0
+		lineageTag: ea93360c-d481-457e-b983-c20736c2b903
+		summarizeBy: sum
+		sourceColumn: shipping_cost
+
+		annotation SummarizationSetBy = Automatic
+
+	column net_sales
+		dataType: int64
+		formatString: 0
+		lineageTag: 0224be56-42de-496d-97f1-a7bfe6286d0d
+		summarizeBy: sum
+		sourceColumn: net_sales
+
+		annotation SummarizationSetBy = Automatic
+
+	column product_cost
+		dataType: int64
+		formatString: 0
+		lineageTag: 96c8c25f-eb35-43fb-a81e-1879c0e4b0b9
+		summarizeBy: sum
+		sourceColumn: product_cost
+
+		annotation SummarizationSetBy = Automatic
+
+	column profit
+		dataType: int64
+		formatString: 0
+		lineageTag: 8bc59eb6-1474-4179-87fd-9ec19627591e
+		summarizeBy: sum
+		sourceColumn: profit
+
+		annotation SummarizationSetBy = Automatic
+
+	partition order_items = m
+		mode: import
+		source =
+				let
+				    Fonte = Csv.Document(File.Contents("D:\Projetos\sales_analytics\dataset\order_items.csv"),[Delimiter=",", Columns=12, Encoding=1252, QuoteStyle=QuoteStyle.None]),
+				    #"Cabeçalhos Promovidos" = Table.PromoteHeaders(Fonte, [PromoteAllScalars=true]),
+				    #"Tipo Alterado" = Table.TransformColumnTypes(#"Cabeçalhos Promovidos",{{"order_id", type text}, {"product_id", type text}, {"quantity", Int64.Type}, {"unit_price", Int64.Type}, {"discount_percentage", Int64.Type}, {"discount_amount", Int64.Type}, {"gross_sales", Int64.Type}, {"tax_amount", Int64.Type}, {"shipping_cost", Int64.Type}, {"net_sales", Int64.Type}, {"product_cost", Int64.Type}, {"profit", Int64.Type}})
+				in
+				    #"Tipo Alterado"
+
+	annotation PBI_ResultType = Table
+
