@@ -118,18 +118,11 @@ Durante o projeto, pude trabalhar a escolha de visualizações adequadas para di
 
 📂 Como explorar o projeto?
 
-Confira a imagem do dashboard disponível neste repositório.
-
 Abra o arquivo .pbix no Power BI Desktop, caso esteja disponível.
 
 Utilize os filtros interativos para explorar as diferentes análises.
 
 Compare os indicadores e descubra novas perspectivas sobre os dados.
 
-👨‍💻 Sobre o autor
+📂 Banco de dados público do site Kaggle https://www.kaggle.com/datasets/datascikhan/e-commerce-sales-and-customer-analytics
 
-Desenvolvido por [Seu nome]
-
-Apaixonado por tecnologia, dados e pela possibilidade de transformar informações em soluções inteligentes.
-
-Este projeto faz parte do meu portfólio de estudos e projetos práticos em Análise de Dados.
